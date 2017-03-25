@@ -5,6 +5,7 @@
 ;; Version: 1.6
 ;; Keywords: web text
 ;; URL: https://github.com/davep/obfusurl.el
+;; Package-Requires: ((cl-lib "0.5"))
 
 ;; obfusurl.el is free software distributed under the terms of the GNU
 ;; General Public Licence, version 2. For details see the file COPYING.
@@ -44,7 +45,7 @@
 ;; Things we need:
 
 (eval-when-compile
-  (require 'cl))
+  (require 'cl-lib))
 (require 'thingatpt)
 
 ;; Constants.
@@ -59,22 +60,22 @@
 
 Existing percent-escapes and reserved characters (as defined in RFC 2396) in
 the text are preserved."
-  (flet ((hexify-string (string)
-           (with-output-to-string
-             (mapc (lambda (c)
-                     (princ (format
-                             (if (member c obfuscate-url-reserved-chars)
-                                 "%c"
-                               "%%%02x")
-                             c))) string))))
+  (cl-flet ((hexify-string (string)
+              (with-output-to-string
+                (mapc (lambda (c)
+                        (princ (format
+                                (if (member c obfuscate-url-reserved-chars)
+                                    "%c"
+                                  "%%%02x")
+                                c))) string))))
     (let ((case-fold-search t))
       (with-output-to-string
-        (loop for i = 0 then (match-end 0)
-              while (string-match "%[0-9a-f][0-9a-f]" string i)
-              do (princ
-                  (concat (hexify-string (substring string i (match-beginning 0)))
-                          (match-string 0 string)))
-              finally (princ (hexify-string (substring string i))))))))
+        (cl-loop for i = 0 then (match-end 0)
+           while (string-match "%[0-9a-f][0-9a-f]" string i)
+           do (princ
+               (concat (hexify-string (substring string i (match-beginning 0)))
+                       (match-string 0 string)))
+           finally (princ (hexify-string (substring string i))))))))
 
 (defun obfuscate-url-hexify-url (url)
   "Return URL as a percent-escaped URL."
