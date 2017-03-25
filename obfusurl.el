@@ -1,5 +1,5 @@
 ;;; obfusurl.el --- Obfuscate URLs so they aren't spoilers
-;; Copyright 2001,2002 by Dave Pearson <davep@davep.org>
+;; Copyright 2001-2017 by Dave Pearson <davep@davep.org>
 
 ;; Author: Dave Pearson <davep@davep.org>
 ;; Version: 1.6
