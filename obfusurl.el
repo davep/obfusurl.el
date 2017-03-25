@@ -3,7 +3,7 @@
 
 ;; Author: Dave Pearson <davep@davep.org>
 ;; Version: 1.6
-;; Keywords: web text
+;; Keywords: convenience, web, text
 ;; URL: https://github.com/davep/obfusurl.el
 ;; Package-Requires: ((cl-lib "0.5"))
 
