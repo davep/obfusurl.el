@@ -1,3 +1,5 @@
+[![MELPA](https://melpa.org/packages/obfusurl-badge.svg)](https://melpa.org/#/obfusurl)
+
 # obfusurl.el
 
 `obfusurl.el` provides `obfusurl`, a command that will obfuscate an URL
