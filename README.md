@@ -1,3 +1,4 @@
+[![MELPA Stable](https://stable.melpa.org/packages/obfusurl-badge.svg)](https://stable.melpa.org/#/obfusurl)
 [![MELPA](https://melpa.org/packages/obfusurl-badge.svg)](https://melpa.org/#/obfusurl)
 
 # obfusurl.el
