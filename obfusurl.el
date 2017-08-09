@@ -2,7 +2,7 @@
 ;; Copyright 2001-2017 by Dave Pearson <davep@davep.org>
 
 ;; Author: Dave Pearson <davep@davep.org>
-;; Version: 2.0
+;; Version: 2.1
 ;; Keywords: convenience, web, text
 ;; URL: https://github.com/davep/obfusurl.el
 ;; Package-Requires: ((cl-lib "0.5"))
