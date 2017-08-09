@@ -100,11 +100,11 @@ the text are preserved."
 
 ;;;###autoload
 (defun obfusurl ()
-  "Obfuscate an URL under `point'.
+  "Obfuscate a URL under `point'.
 
-This might be useful if you're writing out an URL for someone but the URL
-itself is a spoiler. The URL will still work but it won't be readable (by
-most mortals anyway)."
+This might be useful if you're writing out a URL for someone but
+the URL itself is a spoiler. The URL will still work but it won't
+be readable (by most mortals anyway)."
   (interactive "*")
   (let ((url (thing-at-point 'url))
         (bounds (bounds-of-thing-at-point 'url)))
