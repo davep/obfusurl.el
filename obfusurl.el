@@ -106,11 +106,11 @@ This might be useful if you're writing out a URL for someone but
 the URL itself is a spoiler. The URL will still work but it won't
 be readable (by most mortals anyway)."
   (interactive "*")
-  (let ((url (thing-at-point 'url))
-        (bounds (bounds-of-thing-at-point 'url)))
-    (if url
-        (setf (buffer-substring (car bounds) (cdr bounds)) (obfusurl-hexify-url url))
-      (error "I can't see an URL here"))))
+  (if-let (url (thing-at-point 'url))
+      (let ((bounds (bounds-of-thing-at-point 'url)))
+        (delete-region (car bounds) (cdr bounds))
+        (insert (obfusurl-hexify-url url)))
+    (error "I can't see an URL here")))
 
 (provide 'obfusurl)
 
