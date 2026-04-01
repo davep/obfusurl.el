@@ -5,7 +5,7 @@
 ;; Version: 2.1
 ;; Keywords: convenience, web, text
 ;; URL: https://github.com/davep/obfusurl.el
-;; Package-Requires: ((cl-lib "0.5"))
+;; Package-Requires: ((emacs "25.1"))
 
 ;; This program is free software: you can redistribute it and/or modify it
 ;; under the terms of the GNU General Public License as published by the
