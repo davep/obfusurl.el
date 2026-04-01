@@ -1,4 +1,4 @@
-;;; obfusurl.el --- Obfuscate URLs so they aren't spoilers
+;;; obfusurl.el --- Obfuscate URLs so they aren't spoilers  -*- lexical-binding: t; -*-
 ;; Copyright 2001-2017 by Dave Pearson <davep@davep.org>
 
 ;; Author: Dave Pearson <davep@davep.org>
