@@ -1,8 +1,8 @@
 ;;; obfusurl.el --- Obfuscate URLs so they aren't spoilers  -*- lexical-binding: t; -*-
-;; Copyright 2001-2017 by Dave Pearson <davep@davep.org>
+;; Copyright 2001-2026 by Dave Pearson <davep@davep.org>
 
 ;; Author: Dave Pearson <davep@davep.org>
-;; Version: 2.1
+;; Version: 2.2
 ;; Keywords: convenience, web, text
 ;; URL: https://github.com/davep/obfusurl.el
 ;; Package-Requires: ((emacs "25.1"))
