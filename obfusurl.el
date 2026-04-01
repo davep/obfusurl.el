@@ -1,11 +1,11 @@
-;;; obfusurl.el --- Obfuscate URLs so they aren't spoilers
-;; Copyright 2001-2017 by Dave Pearson <davep@davep.org>
+;;; obfusurl.el --- Obfuscate URLs so they aren't spoilers  -*- lexical-binding: t; -*-
+;; Copyright 2001-2026 by Dave Pearson <davep@davep.org>
 
 ;; Author: Dave Pearson <davep@davep.org>
-;; Version: 2.1
+;; Version: 2.2
 ;; Keywords: convenience, web, text
 ;; URL: https://github.com/davep/obfusurl.el
-;; Package-Requires: ((cl-lib "0.5"))
+;; Package-Requires: ((emacs "25.1"))
 
 ;; This program is free software: you can redistribute it and/or modify it
 ;; under the terms of the GNU General Public License as published by the
@@ -93,10 +93,10 @@ the text are preserved."
         (split          (split-string url "/")))
     (with-output-to-string
       (princ (format "%s//%s" (nth 0 split) (nth 2 split)))
-      (loop for part in (nthcdr 3 split)
-            unless (string= part "")    ; Because of XEmacs' `split-string'.
-            do (princ (concat "/" (obfusurl-hexify-string part)))
-            finally (when trailing-slash (princ "/"))))))
+      (cl-loop for part in (nthcdr 3 split)
+               unless (string= part "")    ; Because of XEmacs' `split-string'.
+               do (princ (concat "/" (obfusurl-hexify-string part)))
+               finally (when trailing-slash (princ "/"))))))
 
 ;;;###autoload
 (defun obfusurl ()
@@ -106,11 +106,11 @@ This might be useful if you're writing out a URL for someone but
 the URL itself is a spoiler. The URL will still work but it won't
 be readable (by most mortals anyway)."
   (interactive "*")
-  (let ((url (thing-at-point 'url))
-        (bounds (bounds-of-thing-at-point 'url)))
-    (if url
-        (setf (buffer-substring (car bounds) (cdr bounds)) (obfusurl-hexify-url url))
-      (error "I can't see an URL here"))))
+  (if-let (url (thing-at-point 'url))
+      (let ((bounds (bounds-of-thing-at-point 'url)))
+        (delete-region (car bounds) (cdr bounds))
+        (insert (obfusurl-hexify-url url)))
+    (error "I can't see an URL here")))
 
 (provide 'obfusurl)
 
