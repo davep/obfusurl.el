@@ -93,10 +93,10 @@ the text are preserved."
         (split          (split-string url "/")))
     (with-output-to-string
       (princ (format "%s//%s" (nth 0 split) (nth 2 split)))
-      (loop for part in (nthcdr 3 split)
-            unless (string= part "")    ; Because of XEmacs' `split-string'.
-            do (princ (concat "/" (obfusurl-hexify-string part)))
-            finally (when trailing-slash (princ "/"))))))
+      (cl-loop for part in (nthcdr 3 split)
+               unless (string= part "")    ; Because of XEmacs' `split-string'.
+               do (princ (concat "/" (obfusurl-hexify-string part)))
+               finally (when trailing-slash (princ "/"))))))
 
 ;;;###autoload
 (defun obfusurl ()
